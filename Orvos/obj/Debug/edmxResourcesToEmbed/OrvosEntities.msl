@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="klinikaModelStoreContainer" CdmEntityContainer="klinikaEntities">
+    <EntitySetMapping Name="kezeles">
+      <EntityTypeMapping TypeName="klinikaModel.kezeles">
+        <MappingFragment StoreEntitySet="kezeles">
+          <ScalarProperty Name="kezeles_id" ColumnName="kezeles_id" />
+          <ScalarProperty Name="paciens_id" ColumnName="paciens_id" />
+          <ScalarProperty Name="orvos_id" ColumnName="orvos_id" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="kezdesido" ColumnName="kezdesido" />
+          <ScalarProperty Name="idotartam" ColumnName="idotartam" />
+          <ScalarProperty Name="megjegyzes" ColumnName="megjegyzes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orvos">
+      <EntityTypeMapping TypeName="klinikaModel.orvos">
+        <MappingFragment StoreEntitySet="orvos">
+          <ScalarProperty Name="orvos_id" ColumnName="orvos_id" />
+          <ScalarProperty Name="szakterulet_id" ColumnName="szakterulet_id" />
+          <ScalarProperty Name="nev" ColumnName="nev" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="oradij" ColumnName="oradij" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paciens">
+      <EntityTypeMapping TypeName="klinikaModel.paciens">
+        <MappingFragment StoreEntitySet="paciens">
+          <ScalarProperty Name="paciens_id" ColumnName="paciens_id" />
+          <ScalarProperty Name="nev" ColumnName="nev" />
+          <ScalarProperty Name="szuletett" ColumnName="szuletett" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="szakterulet">
+      <EntityTypeMapping TypeName="klinikaModel.szakterulet">
+        <MappingFragment StoreEntitySet="szakterulet">
+          <ScalarProperty Name="szakterulet_id" ColumnName="szakterulet_id" />
+          <ScalarProperty Name="nev" ColumnName="nev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

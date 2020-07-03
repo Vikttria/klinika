@@ -1,0 +1,17 @@
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\bin\Debug\Orvos.exe.config
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\bin\Debug\Orvos.exe
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\bin\Debug\Orvos.pdb
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\bin\Debug\EntityFramework.dll
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\bin\Debug\EntityFramework.xml
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.csprojAssemblyReference.cache
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.Form1.resources
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.Properties.Resources.resources
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.csproj.GenerateResource.cache
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.csproj.CoreCompileInputs.cache
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.csproj.CopyComplete
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.exe
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.pdb
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.Orvosok.resources
+C:\Users\viktt\Documents\tanulás\programozás\C#\adatbazis feladatok\Orvos\Orvos\Orvos\obj\Debug\Orvos.UjKezeles.resources

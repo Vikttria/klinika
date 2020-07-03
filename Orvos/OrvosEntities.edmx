@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="klinikaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="kezeles">
+          <Key>
+            <PropertyRef Name="kezeles_id" />
+          </Key>
+          <Property Name="kezeles_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paciens_id" Type="int" />
+          <Property Name="orvos_id" Type="int" />
+          <Property Name="datum" Type="date" />
+          <Property Name="kezdesido" Type="int" />
+          <Property Name="idotartam" Type="int" />
+          <Property Name="megjegyzes" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="orvos">
+          <Key>
+            <PropertyRef Name="orvos_id" />
+          </Key>
+          <Property Name="orvos_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="szakterulet_id" Type="int" />
+          <Property Name="nev" Type="varchar" MaxLength="30" />
+          <Property Name="telefon" Type="varchar" MaxLength="20" />
+          <Property Name="oradij" Type="int" />
+        </EntityType>
+        <EntityType Name="paciens">
+          <Key>
+            <PropertyRef Name="paciens_id" />
+          </Key>
+          <Property Name="paciens_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nev" Type="varchar" MaxLength="30" />
+          <Property Name="szuletett" Type="date" />
+          <Property Name="telefon" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="szakterulet">
+          <Key>
+            <PropertyRef Name="szakterulet_id" />
+          </Key>
+          <Property Name="szakterulet_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nev" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_kezeles_orvos">
+          <End Role="orvos" Type="Self.orvos" Multiplicity="0..1" />
+          <End Role="kezeles" Type="Self.kezeles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orvos">
+              <PropertyRef Name="orvos_id" />
+            </Principal>
+            <Dependent Role="kezeles">
+              <PropertyRef Name="orvos_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kezeles_paciens">
+          <End Role="paciens" Type="Self.paciens" Multiplicity="0..1" />
+          <End Role="kezeles" Type="Self.kezeles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paciens">
+              <PropertyRef Name="paciens_id" />
+            </Principal>
+            <Dependent Role="kezeles">
+              <PropertyRef Name="paciens_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orvos_szakterulet">
+          <End Role="szakterulet" Type="Self.szakterulet" Multiplicity="0..1" />
+          <End Role="orvos" Type="Self.orvos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="szakterulet">
+              <PropertyRef Name="szakterulet_id" />
+            </Principal>
+            <Dependent Role="orvos">
+              <PropertyRef Name="szakterulet_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="klinikaModelStoreContainer">
+          <EntitySet Name="kezeles" EntityType="Self.kezeles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orvos" EntityType="Self.orvos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paciens" EntityType="Self.paciens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="szakterulet" EntityType="Self.szakterulet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_kezeles_orvos" Association="Self.FK_kezeles_orvos">
+            <End Role="orvos" EntitySet="orvos" />
+            <End Role="kezeles" EntitySet="kezeles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kezeles_paciens" Association="Self.FK_kezeles_paciens">
+            <End Role="paciens" EntitySet="paciens" />
+            <End Role="kezeles" EntitySet="kezeles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orvos_szakterulet" Association="Self.FK_orvos_szakterulet">
+            <End Role="szakterulet" EntitySet="szakterulet" />
+            <End Role="orvos" EntitySet="orvos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="klinikaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="kezeles">
+          <Key>
+            <PropertyRef Name="kezeles_id" />
+          </Key>
+          <Property Name="kezeles_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paciens_id" Type="Int32" />
+          <Property Name="orvos_id" Type="Int32" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <Property Name="kezdesido" Type="Int32" />
+          <Property Name="idotartam" Type="Int32" />
+          <Property Name="megjegyzes" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="orvos" Relationship="Self.FK_kezeles_orvos" FromRole="kezeles" ToRole="orvos" />
+          <NavigationProperty Name="paciens" Relationship="Self.FK_kezeles_paciens" FromRole="kezeles" ToRole="paciens" />
+        </EntityType>
+        <EntityType Name="orvos">
+          <Key>
+            <PropertyRef Name="orvos_id" />
+          </Key>
+          <Property Name="orvos_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="szakterulet_id" Type="Int32" />
+          <Property Name="nev" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="oradij" Type="Int32" />
+          <NavigationProperty Name="kezeles" Relationship="Self.FK_kezeles_orvos" FromRole="orvos" ToRole="kezeles" />
+          <NavigationProperty Name="szakterulet" Relationship="Self.FK_orvos_szakterulet" FromRole="orvos" ToRole="szakterulet" />
+        </EntityType>
+        <EntityType Name="paciens">
+          <Key>
+            <PropertyRef Name="paciens_id" />
+          </Key>
+          <Property Name="paciens_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nev" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="szuletett" Type="DateTime" Precision="0" />
+          <Property Name="telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="kezeles" Relationship="Self.FK_kezeles_paciens" FromRole="paciens" ToRole="kezeles" />
+        </EntityType>
+        <EntityType Name="szakterulet">
+          <Key>
+            <PropertyRef Name="szakterulet_id" />
+          </Key>
+          <Property Name="szakterulet_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nev" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="orvos" Relationship="Self.FK_orvos_szakterulet" FromRole="szakterulet" ToRole="orvos" />
+        </EntityType>
+        <Association Name="FK_kezeles_orvos">
+          <End Role="orvos" Type="Self.orvos" Multiplicity="0..1" />
+          <End Role="kezeles" Type="Self.kezeles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orvos">
+              <PropertyRef Name="orvos_id" />
+            </Principal>
+            <Dependent Role="kezeles">
+              <PropertyRef Name="orvos_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kezeles_paciens">
+          <End Role="paciens" Type="Self.paciens" Multiplicity="0..1" />
+          <End Role="kezeles" Type="Self.kezeles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paciens">
+              <PropertyRef Name="paciens_id" />
+            </Principal>
+            <Dependent Role="kezeles">
+              <PropertyRef Name="paciens_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orvos_szakterulet">
+          <End Role="szakterulet" Type="Self.szakterulet" Multiplicity="0..1" />
+          <End Role="orvos" Type="Self.orvos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="szakterulet">
+              <PropertyRef Name="szakterulet_id" />
+            </Principal>
+            <Dependent Role="orvos">
+              <PropertyRef Name="szakterulet_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="klinikaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="kezeles" EntityType="Self.kezeles" />
+          <EntitySet Name="orvos" EntityType="Self.orvos" />
+          <EntitySet Name="paciens" EntityType="Self.paciens" />
+          <EntitySet Name="szakterulet" EntityType="Self.szakterulet" />
+          <AssociationSet Name="FK_kezeles_orvos" Association="Self.FK_kezeles_orvos">
+            <End Role="orvos" EntitySet="orvos" />
+            <End Role="kezeles" EntitySet="kezeles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kezeles_paciens" Association="Self.FK_kezeles_paciens">
+            <End Role="paciens" EntitySet="paciens" />
+            <End Role="kezeles" EntitySet="kezeles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orvos_szakterulet" Association="Self.FK_orvos_szakterulet">
+            <End Role="szakterulet" EntitySet="szakterulet" />
+            <End Role="orvos" EntitySet="orvos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="klinikaModelStoreContainer" CdmEntityContainer="klinikaEntities">
+          <EntitySetMapping Name="kezeles">
+            <EntityTypeMapping TypeName="klinikaModel.kezeles">
+              <MappingFragment StoreEntitySet="kezeles">
+                <ScalarProperty Name="kezeles_id" ColumnName="kezeles_id" />
+                <ScalarProperty Name="paciens_id" ColumnName="paciens_id" />
+                <ScalarProperty Name="orvos_id" ColumnName="orvos_id" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="kezdesido" ColumnName="kezdesido" />
+                <ScalarProperty Name="idotartam" ColumnName="idotartam" />
+                <ScalarProperty Name="megjegyzes" ColumnName="megjegyzes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orvos">
+            <EntityTypeMapping TypeName="klinikaModel.orvos">
+              <MappingFragment StoreEntitySet="orvos">
+                <ScalarProperty Name="orvos_id" ColumnName="orvos_id" />
+                <ScalarProperty Name="szakterulet_id" ColumnName="szakterulet_id" />
+                <ScalarProperty Name="nev" ColumnName="nev" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="oradij" ColumnName="oradij" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paciens">
+            <EntityTypeMapping TypeName="klinikaModel.paciens">
+              <MappingFragment StoreEntitySet="paciens">
+                <ScalarProperty Name="paciens_id" ColumnName="paciens_id" />
+                <ScalarProperty Name="nev" ColumnName="nev" />
+                <ScalarProperty Name="szuletett" ColumnName="szuletett" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="szakterulet">
+            <EntityTypeMapping TypeName="klinikaModel.szakterulet">
+              <MappingFragment StoreEntitySet="szakterulet">
+                <ScalarProperty Name="szakterulet_id" ColumnName="szakterulet_id" />
+                <ScalarProperty Name="nev" ColumnName="nev" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
